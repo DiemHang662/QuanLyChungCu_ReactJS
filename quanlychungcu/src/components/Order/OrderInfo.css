@@ -1,0 +1,66 @@
+/* OrderInfo.css */
+.order-info {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .order-info h2 {
+    color: #ff5722;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .order-info p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .order-info p strong {
+    color: #333;
+  }
+  
+  .order-info ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .order-info ul li {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+  }
+  
+  .order-info ul li:last-child {
+    border-bottom: none;
+  }
+  
+  .order-info ul li p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .order-info .product-name {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .order-info .product-quantity {
+    color: #666;
+  }
+  
+  .order-info .product-price {
+    color: #ff5722;
+  }
+  
+  .order-info .total-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff5722;
+    margin-top: 20px;
+  }
+  

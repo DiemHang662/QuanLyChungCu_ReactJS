@@ -1,0 +1,38 @@
+.avatar {
+    width: 60%;
+    height: 440px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .bill-detail-container {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .bill-details {
+    padding: 20px;
+    width:71%;
+    border: 1px solid gainsboro;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.34);
+  }
+  
+  .bill-details h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #B8860B;
+    width:100%;
+  }
+  
+  .bill-details p {
+    margin-top: 20px;
+    margin-bottom: 10px; 
+    line-height: 3; 
+    text-align: left;
+  }
+
+  .bill-details button{
+    margin-left: 10px;
+    background-color: #009900;
+}
+  

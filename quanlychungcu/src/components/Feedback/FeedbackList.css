@@ -1,0 +1,25 @@
+.feedback-container {
+    padding: 20px;
+  }
+  
+  .filter-buttons {
+    margin-bottom: 10px;
+  }
+  
+  .filter-buttons button {
+    margin-right: 10px;
+  }
+  
+  .feedback-list-cards {
+    margin-top: 20px;
+  }
+  
+  .add-feedback-btn {
+    margin: 20px 0;
+  }
+  
+  .title-list {
+    text-align: center;
+    margin: 20px 0;
+  }
+  

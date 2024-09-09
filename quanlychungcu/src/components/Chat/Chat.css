@@ -1,0 +1,89 @@
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgI_0ZQ5rno0ZkGXaEebgq1L2A3IuHS6FZ8ntvS5YUDvuKF1ME_x-os1tdTNozkoUG5yZRhqyBfqtJ0Wt9t1QSfO5Ia_b4pGRC3EV4Y-9_d2SqEIa6Dlc3a80gLoZY9M2q0PZtyZ2PeYk53/s1600/hinh-anh-phong-khach-cua-hinode-city.jpg');
+    background-size: cover;
+    background-position: center;
+    color: black;
+    padding: 10px;
+    box-sizing: border-box; 
+}
+
+.chat {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: white;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1200px; 
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    opacity: 0.95;
+}
+
+.messages-container {
+    flex: 1; 
+    padding: 20px;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.own-message {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.message-user {
+    font-weight: bold;
+}
+
+
+.message-text {
+    background-color:rgb(232, 241, 249);
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.input-container {
+    display: flex;
+    padding: 10px;
+    background-color: whitesmoke;
+    border-top: 1px solid gainsboro;
+    position: sticky; 
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-text {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+}
+
+.input-container button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: dodgerblue;
+    color: whitesmoke;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-container button:hover {
+    background-color: darkblue;
+}

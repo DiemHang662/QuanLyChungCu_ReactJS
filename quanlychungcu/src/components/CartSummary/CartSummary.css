@@ -1,0 +1,44 @@
+.table{
+    margin-top:20px;
+    width: 100%;
+}
+
+.head{
+  background-color:rgb(243, 242, 242)!important;
+}
+
+.content {
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .cart-summary {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .name, .price, .quantity{
+    padding: 40px 20px !important;
+  }
+  
+  .quantity{
+    width:8%;
+  }
+
+  .bt{
+      margin-left: 5px;
+      display:inline-flex;
+      align-items: center;
+      width:60%;
+  }
+
+  .total-price{
+   color:dodgerblue;
+   text-align: center;
+  }

@@ -1,0 +1,59 @@
+/* Survey.css */
+.container {
+    padding: 20px;
+    background-color: white;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 18px;
+    color: green;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.surveyItem {
+    padding: 15px;
+    border-bottom: 1px solid lightgray;
+    cursor: pointer;
+}
+
+.surveyItem.selected {
+    color: #1E90FF;
+}
+
+.surveyDetail {
+    margin-top: 25px;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    color: green;
+    padding: 10px;
+}
+
+label {
+    display: block;
+    font-style: italic;
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+.input {
+    height: 40px;
+    border: 1px solid lightgray;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.errorText {
+    color: red;
+    margin-top: 20px;
+}

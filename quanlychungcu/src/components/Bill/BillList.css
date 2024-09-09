@@ -1,0 +1,81 @@
+.container {
+    margin-top: 20px;
+  }
+  
+  .title-list {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color:#B8860B;
+  }
+  
+  .bill-list-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    margin-left:50px;
+    margin-right:50px;
+  }
+  
+  .bill-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .bill-item:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .bill-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .bill-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .bill-type {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .bill-amount {
+    color:crimson;
+    margin-bottom: 5px;
+  }
+  
+  .bill-status {
+    color: #888;
+  }
+  
+  .bill-button {
+    background-color: crimson;
+    border-color: crimson;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .filter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .radio-filter {
+    margin: 12px 20px;
+  }

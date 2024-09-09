@@ -1,0 +1,38 @@
+.change-avatar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: white;
+  }
+  
+  .avatar-image {
+    width: 400px;
+    height: 500px;
+    margin-bottom: 20px;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .file-input {
+    display: none;
+  }
+  
+  .file-input + label {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .file-input + label:hover {
+    background-color: darkgreen;
+  }
+  
