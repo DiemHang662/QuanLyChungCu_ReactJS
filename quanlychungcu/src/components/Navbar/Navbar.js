@@ -33,6 +33,9 @@ const NavbarComponent = ({ searchTerm, setSearchTerm }) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/"><HomeIcon /> Trang chủ</Nav.Link>
+            {user && user.is_superuser && (
+                 <Nav.Link as ={Link} to ="/resident">Cư dân</Nav.Link>
+              )}
             <Nav.Link as={Link} to="/bill"><ReceiptIcon /> Hóa đơn</Nav.Link>
             <Nav.Link as={Link} to="/product"><ShoppingCartIcon /> Mua hàng</Nav.Link>
             <Nav.Link as={Link} to="/chat"><ChatIcon /> Trò chuyện</Nav.Link> 

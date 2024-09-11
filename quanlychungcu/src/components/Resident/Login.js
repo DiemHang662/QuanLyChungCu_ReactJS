@@ -5,8 +5,6 @@ import API, { setAuthToken, endpoints } from '../../configs/API';
 import { MyDispatchContext } from '../../configs/Contexts';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import GoogleIcon from '@mui/icons-material/Google';
-import { auth, signInWithPopup, googleProvider } from '../../Firebase';
 import './Login.css';
 
 const Login = () => {
@@ -36,7 +34,6 @@ const Login = () => {
       const res = await API.post(endpoints.login, formData, config);
 
       const token = res.data.access_token;
-      console.log('Login successful, token:', token);
       setAuthToken(token);
 
       let user = await API.get(endpoints.currentUser, {
@@ -44,8 +41,6 @@ const Login = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-
-      console.info(user.data);
 
       dispatch({
         type: 'login',
@@ -59,44 +54,7 @@ const Login = () => {
 
       navigate('/');
     } catch (ex) {
-      console.error('Login error', ex);
       setError('Vui lòng nhập lại username hoặc password');
-    }
-  };
-
-  const handleGoogleSignIn = async () => {
-    try {
-      await auth.signOut(); // Ensure sign-out completes
-      const result = await signInWithPopup(auth, googleProvider);
-      const user = result.user;
-      const token = await user.getIdToken(); // Get Google token
-
-      // Set the auth token for subsequent API requests
-      setAuthToken(token);
-
-      // Save token to local storage
-      localStorage.setItem('googleToken', token);
-
-      // Fetch user data from your API
-      let userData = await API.get(endpoints.currentUser, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      userData = userData.data;
-      console.info('Google Sign-In successful, user data:', userData);
-
-      // Dispatch the user data to the context
-      dispatch({
-        type: 'login',
-        payload: userData,
-      });
-
-      window.location.href = '/';
-    } catch (error) {
-      console.error('Google Sign-In error:', error);
-      setError('Đăng nhập bằng Google không thành công. Chi tiết lỗi: ' + error.message);
     }
   };
 
@@ -146,23 +104,13 @@ const Login = () => {
             </Button>
           </Form.Group>
           {error && (
-            <Alert variant="danger" style={{ width: '95%', margin: '10px 20px', height: '60px' }}>
+            <Alert variant="danger" className="alert">
               {error}
             </Alert>
           )}
           <Button variant="success" onClick={login} className="loginBtn">
             ĐĂNG NHẬP
           </Button>
-          <div className="social-buttons">
-            <Button variant="danger" className="google" onClick={handleGoogleSignIn}>
-              <GoogleIcon /> Đăng nhập Google
-            </Button>
-            {/* Uncomment if Facebook sign-in is implemented
-            <Button variant="primary" className="facebook" onClick={handleFacebookSignIn}>
-              <FacebookIcon /> Đăng nhập Facebook
-            </Button>
-            */}
-          </div>
         </Form>
       </div>
     </div>

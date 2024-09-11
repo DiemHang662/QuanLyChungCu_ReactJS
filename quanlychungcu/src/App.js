@@ -12,6 +12,7 @@ import FeedbackDetail from './components/Feedback/FeedbackDetail';
 import Statistics from './components/Statistics/StatisticsChart';
 import Login from './components/Resident/Login';
 import Register from './components/Resident/Register';
+import ResidentList from './components/Resident/ResidentList';
 import ChangePassword from './components/Resident/ChangePassword';
 import ChangeAvatar from './components/Resident/ChangeAvatar';
 import Profile from './components/Resident/Profile';
@@ -29,6 +30,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/resident" element={user ? <ResidentList /> : <Navigate to="/login" />} />
           <Route path="/bill" element={user ? <BillList /> : <Navigate to="/login" />} />
           <Route path="/bill/:id" element={user ? <BillDetail /> : <Navigate to="/login" />} />
           <Route path="/payment" element={user ? <Payment /> : <Navigate to="/login" />} />

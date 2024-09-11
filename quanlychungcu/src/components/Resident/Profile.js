@@ -1,10 +1,9 @@
-// Profile.js
-
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, Button, Container, Row, Col, Image, Spinner } from 'react-bootstrap';
-import { MyDispatchContext, MyUserContext } from '../../configs/Contexts';
+import { Button, Container, Row, Col, Image, Spinner, Navbar } from 'react-bootstrap';
+import { MyDispatchContext } from '../../configs/Contexts';
 import { authApi, endpoints } from '../../configs/API';
+import CustomNavbar from '../../components/Navbar/Navbar';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
@@ -20,7 +19,6 @@ const Profile = () => {
         try {
             const api = await authApi();
             const response = await api.get(endpoints.residents);
-            console.log('API response:', response.data);
             setResident(response.data);
         } catch (error) {
             console.error('Error fetching profile:', error);
@@ -42,9 +40,8 @@ const Profile = () => {
         navigate('/change-password');
     };
 
-    const handleChangeAvatar = async () => {
+    const handleChangeAvatar = () => {
         navigate('/change-avatar');
-        await fetchProfile();
     };
 
     if (loading) {
@@ -66,6 +63,8 @@ const Profile = () => {
     const user = resident[0];
 
     return (
+        <>
+        <CustomNavbar />
         <Container className="profile-container">
             <Row>
                 <Col md={5} className="avatar-container">
@@ -73,6 +72,7 @@ const Profile = () => {
                         <Image
                             src={user.avatar_url}
                             className="avatar-image"
+                            roundedCircle
                         />
                     )}
                     <Button variant="link" onClick={handleChangeAvatar} className="icon-button">
@@ -80,31 +80,19 @@ const Profile = () => {
                     </Button>
                 </Col>
 
-                <Col md={6} className="profile-content">
+                <Col md={7} className="profile-content">
                     <h1 className="hello">Chào, {user.first_name} {user.last_name}</h1>
-                    <Card>
-            <Card.Header as="h2" className="text-center text-danger">HỒ SƠ CÁ NHÂN</Card.Header>
-            <Card.Body>
-              <Card.Text>
-                <strong className="text-success">Họ và tên:</strong> {user.first_name} {user.last_name}
-              </Card.Text>
-              <Card.Text>
-                <strong className="text-success">Tên tài khoản:</strong> {user.username}
-              </Card.Text>
-              <Card.Text>
-                <strong className="text-success">Số điện thoại:</strong> {user.phone}
-              </Card.Text>
-              <Card.Text>
-                <strong className="text-success">Email:</strong> {user.email}
-              </Card.Text>
-            </Card.Body>
-          </Card>
+                    <div className="profile-details">
+                        <p><strong>Họ và tên:</strong> {user.first_name} {user.last_name}</p>
+                        <p><strong>Tên tài khoản:</strong> {user.username}</p>
+                        <p><strong>Số điện thoại:</strong> {user.phone}</p>
+                        <p><strong>Email:</strong> {user.email}</p>
+                    </div>
                     
-                    <div className="btn">
+                    <div className="btn-group">
                         <Button variant="primary" onClick={handleChangePassword}>
                             <ChangeCircleIcon /> Đổi mật khẩu?
                         </Button>
-
                         <Button variant="danger" onClick={handleLogout}>
                             <LogoutIcon /> Đăng xuất
                         </Button>
@@ -112,6 +100,7 @@ const Profile = () => {
                 </Col>
             </Row>
         </Container>
+        </>
     );
 };
 
