@@ -60,8 +60,8 @@
   .bt-search {
     border: none;
     color: white !important;
-    margin-left: -5px;
-    margin-top: 5px !important;
+    margin-bottom: 10px !important;
+    height: 35px;
   }
   
   .bt-search:hover {

@@ -47,6 +47,7 @@
     overflow: hidden;
     transition: transform 0.2s;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
   }
   
   .product-card:hover {
@@ -74,8 +75,7 @@
     background-color:white;
     color:dodgerblue;
     border: 1px solid dodgerblue;
-    width: 70%;
-    margin-left: 50px;
+    width: 80%;
     font-weight: 400;
   }
 

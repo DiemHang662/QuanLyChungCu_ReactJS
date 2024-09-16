@@ -1,11 +1,14 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://10.17.48.196:8000';
+const BASE_URL = 'http://192.168.1.6:8000';
 
 export const endpoints = {
   residents: '/api/residents/',
   createNewAccount: '/api/residents/create-new-account/',
   currentUser: '/api/residents/current-user/',
+  staffCount:'/api/residents/staff-count/',
+  totalBills:'/api/bills/total-bills/',
+  flatCount:'/api/flats/flat-count/',
   changePassword: '/api/residents/change-password/',
   changeAvatar: '/api/residents/change-avatar/',
   login: '/o/token/',

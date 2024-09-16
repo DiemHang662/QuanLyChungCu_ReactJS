@@ -33,9 +33,6 @@ const NavbarComponent = ({ searchTerm, setSearchTerm }) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/"><HomeIcon /> Trang chủ</Nav.Link>
-            {user && user.is_superuser && (
-                 <Nav.Link as ={Link} to ="/resident">Cư dân</Nav.Link>
-              )}
             <Nav.Link as={Link} to="/bill"><ReceiptIcon /> Hóa đơn</Nav.Link>
             <Nav.Link as={Link} to="/product"><ShoppingCartIcon /> Mua hàng</Nav.Link>
             <Nav.Link as={Link} to="/chat"><ChatIcon /> Trò chuyện</Nav.Link> 
@@ -45,6 +42,7 @@ const NavbarComponent = ({ searchTerm, setSearchTerm }) => {
               {user && user.is_superuser && (
                 <>
                   <NavDropdown.Item as={Link} to="/register">Cấp tài khoản</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/resident">Cư dân</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/statistics">Thống kê báo cáo</NavDropdown.Item>
                 </>
               )}

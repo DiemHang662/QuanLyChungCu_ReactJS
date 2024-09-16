@@ -1,0 +1,54 @@
+.footer {
+    border: 1px solid #1e90ff;
+    box-shadow: 0px -7px 15px rgba(0, 0, 0, 0.1) !important; 
+    position: relative; 
+    z-index: 1; 
+}
+
+  .company-title {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 7px;
+    margin-top:5px;
+  }
+  
+  .company-info {
+    font-size: 15px;
+    margin: 10px 0;
+  }
+
+  .footer-icon {
+    color: #1e90ff;
+    margin-right: 8px;
+  }
+  
+  .footer-link {
+    color:black;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .footer-link:hover {
+    color: #1e90ff; /* Interactive hover effect */
+  }
+  
+  .footer-bottom {
+    background-color: #0a1128;
+    padding: 10px 0;
+    font-size: 0.9rem;
+  }
+  
+  .footer-bottom a {
+    color: #1e90ff;
+    text-decoration: none;
+  }
+  
+  .map-container {
+    border: 1px solid #1e90ff;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  
