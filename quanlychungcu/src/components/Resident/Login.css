@@ -1,83 +1,67 @@
-.background {
+.login-container {
+  display: flex;
+  height: 560px; /* Full viewport height for vertical centering */
+  background-color: whitesmoke;
   background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgI_0ZQ5rno0ZkGXaEebgq1L2A3IuHS6FZ8ntvS5YUDvuKF1ME_x-os1tdTNozkoUG5yZRhqyBfqtJ0Wt9t1QSfO5Ia_b4pGRC3EV4Y-9_d2SqEIa6Dlc3a80gLoZY9M2q0PZtyZ2PeYk53/s1600/hinh-anh-phong-khach-cua-hinode-city.jpg');
   background-size: cover;
   background-position: center;
-  height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center; /* Center text */
+  color: black;
 }
 
-.container-login {
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-  padding: 40px;
-  max-width: 450px;
+.formContainer1 {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Full width */
+  max-width: 500px; /* Maximum width for the form */
+  height: 410px !important;
+  background-color: whitesmoke;
+  box-shadow: 0 4px 7px black;
+  padding: 20px; /* Add padding for better spacing */
+}
+
+.left-side1 {
+  display: none; /* Hide left side for a more focused design */
+}
+
+.right-side1 {
   width: 100%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.right-side1 h1 {
+  margin: 20px 0;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.right-side1 .form-group {
+  margin: 15px;
+}
+
+.right-side1 .form-group label {
+  margin-bottom: 10px;
+}
+
+.right-side1 .form-control {
+  background-color: rgb(232, 241, 249);
+}
+
+.icon {
+  height: 55px;
+  width: 55px;
+  background-color: rgb(232, 241, 249);
+}
+
+.submit1  {
   text-align: center;
-}
-
-.title {
-  font-size: 36px;
-  color: white;
-  font-weight: 600;
-  margin-bottom: 30px;
-}
-
-.input {
-  background-color: rgba(255, 255, 255, 0.1); 
-  border: 1px solid #00CC00;
-  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  width: auto;
   height: 50px;
-  color: white;
-  margin-bottom: 20px;
-  padding-left: 15px;
-  transition: all 0.3s ease;
-}
-
-.input:focus {
-  background-color:rgba(0, 0, 0, 0.5);
-  border-color: #00FF00;
-  box-shadow: none;
-  outline: none;
-}
-
-.input::placeholder {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.form-select {
-  width: 100%;
-  color: white;
-}
-
-.loginBtn {
-  width: 40%;
-  height: 50px;
-  background-color: #00CC00;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-.loginBtn:hover {
-  background-color: #00FF00;
-}
-
-.password-toggle {
-  position: absolute;
-  right: 20px; 
-  top: 50%;
-  transform: translateY(-50%);
-  color: rgba(255, 255, 255, 0.8); 
-  cursor: pointer;
-}
-
-.alert {
-  width: 100%;
-  margin-top: 10px;
+  border-radius: 0;
 }

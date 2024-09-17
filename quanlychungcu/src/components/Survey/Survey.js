@@ -1,19 +1,16 @@
-// Survey.js
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // Use axios for HTTP requests
-import { useNavigate } from 'react-router-dom'; // Use useNavigate for routing
-import './Survey.css'; // Import the CSS file
+import { authApi, endpoints } from '../../configs/API';
+import CustomNavbar from '../../components/Navbar/Navbar';
+import './Survey.css';
 
 const Survey = () => {
-  const navigate = useNavigate(); // Hook to access navigation object
-
   const [surveys, setSurveys] = useState([]);
   const [selectedSurvey, setSelectedSurvey] = useState(null);
   const [cleanlinessRating, setCleanlinessRating] = useState('');
   const [facilitiesRating, setFacilitiesRating] = useState('');
   const [servicesRating, setServicesRating] = useState('');
   const [error, setError] = useState(null);
-  const [resident] = useState('1');
+  const [resident] = useState('1'); // Placeholder resident ID
 
   useEffect(() => {
     fetchSurveys();
@@ -21,7 +18,8 @@ const Survey = () => {
 
   const fetchSurveys = async () => {
     try {
-      const response = await axios.get('http://192.168.0.101:8000/api/survey');
+      const api = authApi(); // Initialize authenticated API
+      const response = await api.get(endpoints.survey);
       setSurveys(response.data);
     } catch (error) {
       console.error('Error fetching surveys:', error);
@@ -35,96 +33,99 @@ const Survey = () => {
 
   const submitSurvey = async () => {
     try {
-      const token = localStorage.getItem('access_token');
-      if (!token) {
-        throw new Error('No token found');
-      }
-
-      const response = await fetch("http://192.168.127.124:8000/api/surveyresult/", {
-        method: "POST",
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          survey: selectedSurvey.id,
-          cleanliness_rating: cleanlinessRating,
-          facilities_rating: facilitiesRating,
-          services_rating: servicesRating,
-          resident: resident,
-        }),
+      const api = authApi(); // Initialize authenticated API
+      const response = await api.post(endpoints.surveyresult, {
+        survey: selectedSurvey.id,
+        cleanliness_rating: cleanlinessRating,
+        facilities_rating: facilitiesRating,
+        services_rating: servicesRating,
+        resident: resident,
       });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const data = await response.json();
-      console.info(data);
-      setCleanlinessRating('');
+      console.info('Survey submitted successfully:', response.data);
+      setCleanlinessRating(''); // Reset form fields
       setFacilitiesRating('');
       setServicesRating('');
     } catch (error) {
-      console.error('There was a problem with your fetch operation:', error);
-      setError(`Error submitting survey. ${error.message}`);
+      console.error('Error submitting survey:', error);
+      setError(`Error submitting survey: ${error.message}`);
     }
   };
 
   return (
-    <div className="container">
-      <h2>Chọn khảo sát:</h2>
+    <>
+      <CustomNavbar />
+      <div className="survey-container">
+        <h2 className="text-primary">Khảo sát dành cho cư dân</h2>
+        <div className="survey-content">
+          <div className="survey-list-container">
+            <ul className="survey-list">
+              {surveys.map((survey) => (
+                <li
+                  key={survey.id}
+                  className={`survey-item ${selectedSurvey === survey ? 'selected' : ''}`}
+                  onClick={() => handleSurveySelection(survey)}
+                >
+                  {survey.title}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-      <ul className="list">
-        {surveys.map(survey => (
-          <li
-            key={survey.id}
-            className={`surveyItem ${selectedSurvey === survey ? 'selected' : ''}`}
-            onClick={() => handleSurveySelection(survey)}
-          >
-            {survey.title}
-          </li>
-        ))}
-      </ul>
+          {selectedSurvey && (
+            <div className="survey-form">
+              <h1>{selectedSurvey.title}</h1>
 
-      {selectedSurvey && (
-        <div className="surveyDetail">
-          <h1>{selectedSurvey.title}</h1>
+              <div className="form-group">
+                <label htmlFor="cleanliness">Đánh giá mức độ vệ sinh:</label>
+                <input
+                  type="number"
+                  id="cleanliness"
+                  placeholder="0 - 10"
+                  className="input"
+                  value={cleanlinessRating}
+                  onChange={(e) => setCleanlinessRating(e.target.value)}
+                  min="0"
+                  max="10"
+                />
+              </div>
 
-          <label>
-            Nhập mức độ khảo sát cho tình hình vệ sinh
-            <input
-              placeholder="Vệ sinh"
-              value={cleanlinessRating}
-              onChange={e => setCleanlinessRating(e.target.value)}
-              className="input"
-            />
-          </label>
+              <div className="form-group">
+                <label htmlFor="facilities">Đánh giá cơ sở vật chất:</label>
+                <input
+                  type="number"
+                  id="facilities"
+                  placeholder="0 - 10"
+                  className="input"
+                  value={facilitiesRating}
+                  onChange={(e) => setFacilitiesRating(e.target.value)}
+                  min="0"
+                  max="10"
+                />
+              </div>
 
-          <label>
-            Nhập mức độ khảo sát cho tình hình cơ sở vật chất
-            <input
-              placeholder="Cơ sở vật chất"
-              value={facilitiesRating}
-              onChange={e => setFacilitiesRating(e.target.value)}
-              className="input"
-            />
-          </label>
+              <div className="form-group">
+                <label htmlFor="services">Đánh giá dịch vụ:</label>
+                <input
+                  type="number"
+                  id="services"
+                  placeholder="0 - 10"
+                  className="input"
+                  value={servicesRating}
+                  onChange={(e) => setServicesRating(e.target.value)}
+                  min="0"
+                  max="10"
+                />
+              </div>
 
-          <label>
-            Nhập mức độ khảo sát cho tình hình dịch vụ
-            <input
-              placeholder="Dịch vụ"
-              value={servicesRating}
-              onChange={e => setServicesRating(e.target.value)}
-              className="input"
-            />
-          </label>
-
-          <button onClick={submitSurvey}>Gửi khảo sát</button>
+              <button className="submit-btn" onClick={submitSurvey}>Gửi khảo sát</button>
+            </div>
+          )}
         </div>
-      )}
-      {error && <p className="errorText">{error}</p>}
-    </div>
+
+        {error && <p className="error-text">{error}</p>}
+      </div>
+    </>
   );
 };
 

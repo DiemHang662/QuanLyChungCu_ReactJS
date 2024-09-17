@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Form, Button, Alert, InputGroup, FormControl } from 'react-bootstrap';
 import API, { setAuthToken, endpoints } from '../../configs/API';
 import { MyDispatchContext } from '../../configs/Contexts';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -59,59 +59,67 @@ const Login = () => {
   };
 
   return (
-    <div className="background">
-      <div className="container-login">
-        <h1 className="title">ĐĂNG NHẬP</h1>
-        <Form>
-          <Form.Group controlId="formBasicUserType">
-            <Form.Select
-              value={userType}
-              onChange={(e) => setUserType(e.target.value)}
-              className={`input ${isFocused ? 'focused' : ''}`}
-              onFocus={() => setIsFocused(true)}
-              onBlur={() => setIsFocused(false)}
-            >
-              <option value="regular">Cư dân</option>
-              <option value="superuser">Quản trị viên</option>
-            </Form.Select>
-          </Form.Group>
+    <div className="login-container">
+      <div className="formContainer1">
+        <div className="left-side1"></div>
+        <div className="right-side1">
+          <h1 className="text-primary">ĐĂNG NHẬP NGƯỜI DÙNG</h1>
+          <Form onSubmit={(e) => e.preventDefault()}>
+            <Form.Group>
+              <Form.Label>Bạn là: </Form.Label>
+              <Form.Control
+                as="select"
+                value={userType}
+                onChange={(e) => setUserType(e.target.value)}
+                className={`input ${isFocused ? 'focused' : ''}`}
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => setIsFocused(false)}
+              >
+                <option value="regular">Cư dân</option>
+                <option value="superuser">Quản trị viên</option>
+              </Form.Control>
+            </Form.Group>
 
-          <Form.Group controlId="formBasicUsername">
-            <Form.Control
-              type="text"
-              placeholder="Tên đăng nhập..."
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="input"
-              autoComplete="username"
-            />
-          </Form.Group>
-          <Form.Group controlId="formBasicPassword" className="position-relative">
-            <Form.Control
-              type={secureTextEntry ? 'password' : 'text'}
-              placeholder="Mật khẩu..."
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="input"
-              autoComplete="current-password"
-            />
-            <Button
-              variant="link"
-              className="password-toggle"
-              onClick={() => setSecureTextEntry(!secureTextEntry)}
-            >
-              {secureTextEntry ? <VisibilityOffIcon /> : <VisibilityIcon />}
+            <Form.Group>
+              <Form.Label>Tên tài khoản</Form.Label>
+              <Form.Control
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Nhập tên tài khoản"
+                className="input"
+                autoComplete="username"
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Mật khẩu</Form.Label>
+              <InputGroup>
+                <FormControl
+                  type={secureTextEntry ? 'password' : 'text'}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Nhập mật khẩu"
+                />
+                <InputGroup.Text className="icon">
+                  <Button
+                    variant="link"
+                    onClick={() => setSecureTextEntry(!secureTextEntry)}
+                  >
+                    {secureTextEntry ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                  </Button>
+                </InputGroup.Text>
+              </InputGroup>
+            </Form.Group>
+            {error && (
+              <Alert variant="danger" className="alert">
+                {error}
+              </Alert>
+            )}
+            <Button className="submit1" onClick={login} type="submit" variant="primary">
+              ĐĂNG NHẬP
             </Button>
-          </Form.Group>
-          {error && (
-            <Alert variant="danger" className="alert">
-              {error}
-            </Alert>
-          )}
-          <Button variant="success" onClick={login} className="loginBtn">
-            ĐĂNG NHẬP
-          </Button>
-        </Form>
+          </Form>
+        </div>
       </div>
     </div>
   );
