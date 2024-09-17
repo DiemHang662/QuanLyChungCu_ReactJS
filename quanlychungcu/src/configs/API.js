@@ -5,6 +5,9 @@ const BASE_URL = 'http://192.168.1.6:8000';
 export const endpoints = {
   residents: '/api/residents/',
   createNewAccount: '/api/residents/create-new-account/',
+  lockAccount: (id) => `/api/residents/${id}/lock-account/`,
+  deleteResident: (id) => `/api/residents/${id}/delete-resident/`,
+  updateResident: (id) => `/api/residents/${id}/`,
   currentUser: '/api/residents/current-user/',
   staffCount:'/api/residents/staff-count/',
   totalBills:'/api/bills/total-bills/',

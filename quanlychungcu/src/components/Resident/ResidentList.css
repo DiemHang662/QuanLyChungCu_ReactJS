@@ -1,95 +1,142 @@
-/* ResidentList.css */
-
 .resident-list-table {
-    margin: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .table {
-    border-collapse: separate;
-    border-spacing: 0;
-  }
-  
-  .table thead th {
-    background-color: #f8f9fa;
-    color: #495057;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .table tbody tr:hover {
-    background-color: #e9ecef;
-  }
-  
-  .table td, .table th {
-    padding: 12px;
-    text-align: left;
-  }
-  
-  .table td {
-    vertical-align: middle;
-  }
-  
-  .resident-button-primary {
-    background-color: #007bff;
-    border: none;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-  
-  .resident-button-primary:hover {
-    background-color: #0056b3;
-  }
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-  /* ResidentList.css */
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
 
-/* Style for the page title */
+.table thead th {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: bold;
+  text-align: center;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+.table td, .table th {
+  padding: 15px;
+  text-align: center;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.resident-button-primary {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.resident-button-primary:hover {
+  background-color: #0056b3;
+}
+
+.resident-button-danger {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.resident-button-danger:hover {
+  background-color: #c82333;
+}
+
+.resident-button-warning{
+  background-color:rgb(255, 205, 86);
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.resident-button-warning:hover {
+  background-color:rgb(179, 179, 5);
+}
+
+.resident-button-secondary {
+  background-color: #6c757d;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.resident-button-secondary:hover {
+  background-color: #5a6268;
+}
+
+.add-resident-button {
+  margin-left: 10px;
+  background-color: #28a745;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.add-resident-button:hover {
+  background-color: #218838;
+}
+
+/* Title style */
 .title-list {
-    text-align: center;
-    margin: 30px 0;
-    font-size: 2.5rem;
-    color: #343a40;
-    font-weight: bold;
-  }
-  
-  /* Container style for search form */
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-  
-  /* Style for the search form */
-  .filter-form {
-    margin-bottom: 30px;
-  }
-  
-  .filter-form .form-group {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .filter-form .form-control {
-    width: 100%;
-    max-width: 500px;
-    padding: 12px 20px;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    border: 1px solid #ced4da;
-  }
-  
-  .filter-form .form-control::placeholder {
-    color: #6c757d;
-    font-size: 1rem;
-  }
-  
-  
+  text-align: center;
+  margin: 30px 0;
+  font-size: 2.5rem;
+  color: #343a40;
+  font-weight: bold;
+}
+
+/* Search form container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Search form styling */
+.filter-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.filter-form .form-control {
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 20px;
+  border: 1px solid #ced4da;
+}
+
+.avatar-user{
+  width: 35px;
+}
