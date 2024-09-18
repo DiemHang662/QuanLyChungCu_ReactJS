@@ -1,81 +1,121 @@
-.container {
-    margin-top: 20px;
-  }
-  
-  .title-list {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color:#B8860B;
-  }
-  
-  .bill-list-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-    margin-left:50px;
-    margin-right:50px;
-  }
-  
-  .bill-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-  }
-  
-  .bill-item:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  
-  .bill-image {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-right: 10px;
-  }
-  
-  .bill-info {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .bill-type {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .bill-amount {
-    color:crimson;
-    margin-bottom: 5px;
-  }
-  
-  .bill-status {
-    color: #888;
-  }
-  
-  .bill-button {
-    background-color: crimson;
-    border-color: crimson;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .filter-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .radio-filter {
-    margin: 12px 20px;
-  }
+.container1 {
+  margin-top: 20px;
+}
+
+.bill-list-table1 {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+  width: 100%; /* Make the table take up the full width of the container */
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table thead th {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: bold;
+  text-align: center;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+.table td, .table th {
+  padding: 10px;
+  text-align: center;
+  white-space: nowrap; /* Prevents table cells from shrinking too much */
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.add-bill-button {
+  background-color: #28a745;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-left: 10px; /* Space between search input and button */
+}
+
+.add-bill-button:hover {
+  background-color: #218838;
+}
+
+.filter-form {
+  display: flex;
+  justify-content: space-between; /* Space between search and add button */
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.filter-form .form-control {
+  flex: 1; /* Allow search input to grow and take available space */
+  margin-right: 10px; /* Space between search input and button */
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 20px;
+  border: 1px solid #ced4da;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.bill-button-primary {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.bill-button-primary:hover {
+  background-color: #0056b3;
+}
+
+.bill-button-danger {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.bill-button-danger:hover {
+  background-color: #c82333;
+}
+
+.bill-button-warning {
+  background-color: rgb(255, 205, 86);
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.bill-button-warning:hover {
+  background-color: rgb(179, 179, 5);
+}
+
+.image-bill {
+  width: 35px;
+}
