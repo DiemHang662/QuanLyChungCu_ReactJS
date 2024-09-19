@@ -187,4 +187,10 @@
   .survey .icon-title{
     color: rgb(64, 169, 169);
   }
+
+  .chart{
+    margin: 0 100px;
+    width: 100% !important;
+    height: 500px !important;
+  }
   

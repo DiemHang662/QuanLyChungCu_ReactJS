@@ -138,13 +138,13 @@ const BillList = () => {
                     >
                       <KeyboardDoubleArrowRightIcon />
                     </Button>
-                    <Button
+                    <Button variant="danger"
                       className="bill-button-danger"
                       onClick={() => handleDelete(bill.id)}
                     >
                       <DeleteIcon />
                     </Button>
-                    <Button
+                    <Button variant="warning"
                       className="bill-button-warning"
                       onClick={() => {
                         setEditBill(bill);

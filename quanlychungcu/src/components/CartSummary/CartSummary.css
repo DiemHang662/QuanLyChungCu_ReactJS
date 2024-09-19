@@ -32,10 +32,19 @@
   }
 
   .bt{
-      margin-left: 5px;
-      display:inline-flex;
+      display: inline-flex;
       align-items: center;
       width:60%;
+  }
+
+  .bt-mua{
+    flex: 1;
+    margin-right: 5px;
+  }
+
+  .bt-x{
+    width: 20px;
+    flex: 1;
   }
 
   .total-price{

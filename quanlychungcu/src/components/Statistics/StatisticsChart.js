@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 import { authApi, endpoints } from '../../configs/API';
 import CustomNavbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 import { Alert } from 'react-bootstrap';
 import './StatisticsChart.css';
 
@@ -78,7 +79,7 @@ const StatisticsChart = () => {
       <CustomNavbar />
       <div className="statistics-chart-container">
         <div className="form-container">
-          <h1>Thống Kê Khảo Sát</h1>
+          <h1 className="title-bctk text-primary">Thống Kê Khảo Sát</h1>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -185,6 +186,7 @@ const StatisticsChart = () => {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

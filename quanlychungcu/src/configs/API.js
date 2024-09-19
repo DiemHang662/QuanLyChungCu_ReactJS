@@ -10,6 +10,7 @@ export const endpoints = {
   updateResident: (id) => `/api/residents/${id}/`,
   currentUser: '/api/residents/current-user/',
   staffCount:'/api/residents/staff-count/',
+  residentStatistics:'/api/residents/resident-statistics/',
   totalBills:'/api/bills/total-bills/',
   surveyCount:'/api/surveyresult/survey-count/',
   flatCount:'/api/flats/flat-count/',
@@ -33,6 +34,7 @@ export const endpoints = {
   updateBill: (id) => `/api/bills/${id}/`,
   createBillFromCart: (id) => `/api/bills/create-bill-from-cart/${id}/`,
   updateStatus: (id) => `/api/bills/${id}/`,
+  billStatistics: '/api/bills/bill-statistics/',
   momo: '/payment/',
   payment: '/api/payment/',
 

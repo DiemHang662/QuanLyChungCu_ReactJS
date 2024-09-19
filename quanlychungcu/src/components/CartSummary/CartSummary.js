@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Table, Button, Alert, FormControl, Pagination, Modal } from 'react-bootstrap';
 import { authApi, endpoints } from '../../configs/API';
 import CustomNavbar from '../../components/Navbar/Navbar';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate } from 'react-router-dom';
 import './CartSummary.css';
 
@@ -138,8 +139,8 @@ const CartSummary = () => {
                   <td className="price">{item.product.price * item.quantity} VNĐ</td>
                   <td>
                     <div className="bt">
-                      <Button variant="success" onClick={() => handlePurchase(item)} >Mua ngay</Button>
-                      <Button variant="danger" onClick={() => deleteFromCart(item.id)}>X</Button>
+                      <Button className="bt-mua" variant="success" onClick={() => handlePurchase(item)} >Mua ngay</Button>
+                      <Button className="bt-x" variant="danger" onClick={() => deleteFromCart(item.id)}><DeleteIcon/></Button>
                     </div>
                   </td>
                 </tr>

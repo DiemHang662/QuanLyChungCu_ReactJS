@@ -72,14 +72,14 @@
   }
 
   .add-to-cart-btn {
-    background-color:white;
-    color:dodgerblue;
-    border: 1px solid dodgerblue;
+    background-color:white !important;
+    border: 1px solid dodgerblue !important;
     width: 80%;
     font-weight: 400;
   }
 
   .add-to-cart-btn:hover {
+    background-color: dodgerblue !important;
     color:white !important;
   }
   

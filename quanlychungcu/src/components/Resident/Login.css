@@ -19,7 +19,7 @@
   align-items: center;
   width: 100%; /* Full width */
   max-width: 500px; /* Maximum width for the form */
-  height: 410px !important;
+  height: 450px !important;
   background-color: whitesmoke;
   box-shadow: 0 4px 7px black;
   padding: 20px; /* Add padding for better spacing */
@@ -60,8 +60,12 @@
 .submit1  {
   text-align: center;
   margin-bottom: 10px;
-  margin-top: 20px;
+  margin-top: 10px;
   width: auto;
   height: 50px;
   border-radius: 0;
+}
+
+.alert{
+  margin-top: 10px;
 }

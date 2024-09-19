@@ -67,7 +67,7 @@ const Register = () => {
         <div className="formContainer">
           <div className="left-side"></div>
           <div className="right-side">
-            <h1>CẤP TÀI KHOẢN NGƯỜI DÙNG</h1>
+            <h1 className="title-register">CẤP TÀI KHOẢN NGƯỜI DÙNG</h1>
             <Form onSubmit={handleRegister}>
               <Form.Group>
                 <Form.Label>Họ</Form.Label>

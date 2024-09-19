@@ -167,19 +167,19 @@ const ResidentList = () => {
                   {resident.is_superuser ? 'Quản trị viên' : 'Cư dân'}
                 </td>
                 <td className="action-buttons">
-                  <Button
+                  <Button variant="primary"
                     className="resident-button-primary"
-                    onClick={() => navigate(`/resident/${resident.id}`)}
+                    onClick={() => navigate(`/residents/${resident.id}`)}
                   >
                     <KeyboardDoubleArrowRightIcon />
                   </Button>
-                  <Button
+                  <Button variant ="danger"
                     className="resident-button-danger"
                     onClick={() => handleDelete(resident.id)}
                   >
                     <DeleteIcon />
                   </Button>
-                  <Button
+                  <Button variant ="warning"
                     className="resident-button-warning"
                     onClick={() => {
                       setEditResident(resident);
@@ -188,7 +188,7 @@ const ResidentList = () => {
                   >
                     <EditIcon />
                   </Button>
-                  <Button
+                  <Button variant="secondary"
                     className="resident-button-secondary"
                     onClick={() => handleLock(resident.id)}
                   >

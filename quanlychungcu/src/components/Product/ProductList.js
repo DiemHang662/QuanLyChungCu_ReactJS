@@ -106,7 +106,7 @@ const ProductList = () => {
                   <Card.Body>
                     <Card.Title className="product-name">{product.name}</Card.Title>
                     <Card.Text className="product-price">Giá: {product.price} VNĐ</Card.Text>
-                    <Button variant="danger" className="add-to-cart-btn text-primary" onClick={() => addToCart(product.id)}>
+                    <Button className="add-to-cart-btn text-primary" onClick={() => addToCart(product.id)}>
                       <AddShoppingCartIcon /> Thêm vào giỏ
                     </Button>
                   </Card.Body>
