@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://192.168.1.6:8000';
+const BASE_URL = 'http://192.168.1.7:8000';
 
 export const endpoints = {
   residents: '/api/residents/',
@@ -9,13 +9,13 @@ export const endpoints = {
   deleteResident: (id) => `/api/residents/${id}/delete-resident/`,
   updateResident: (id) => `/api/residents/${id}/`,
   currentUser: '/api/residents/current-user/',
+  residentDetail: (id) => `/api/residents/${id}/`,
   staffCount:'/api/residents/staff-count/',
   residentStatistics:'/api/residents/resident-statistics/',
   totalBills:'/api/bills/total-bills/',
   surveyCount:'/api/surveyresult/survey-count/',
   flatCount:'/api/flats/flat-count/',
   changePassword: '/api/residents/change-password/',
-  changeAvatar: '/api/residents/change-avatar/',
   login: '/o/token/',
 
   product: '/api/product/',
@@ -52,7 +52,9 @@ export const endpoints = {
 
   survey: '/api/survey/',
   surveyID: (id) => `/api/survey/${id}/`,
-  createSurvey: '/api/survey/create-survey/',
+  createSurvey: '/api/survey/',
+  deleteResult: (id) => `/api/surveyresult/${id}/delete-result/`,
+  updateResult: (id) => `/api/surveyresult/${id}/`,
   surveyresult: '/api/surveyresult/',
   surveyresultID: (id) => `/api/surveyresult/${id}/`,
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Table, ButtonGroup, Image, Modal } from 'react-bootstrap';
 import CustomNavbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 import { authApi, endpoints } from '../../configs/API';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -106,8 +107,7 @@ const ResidentList = () => {
           <Button 
             className="add-resident-button"
             onClick={() => {
-              setEditResident(null);
-              setShowEditModal(true);
+             navigate('/register')
             }} 
             variant="success"
           >
@@ -169,7 +169,7 @@ const ResidentList = () => {
                 <td className="action-buttons">
                   <Button variant="primary"
                     className="resident-button-primary"
-                    onClick={() => navigate(`/residents/${resident.id}`)}
+                    onClick={() => navigate(`/resident/${resident.id}`)}
                   >
                     <KeyboardDoubleArrowRightIcon />
                   </Button>
@@ -266,6 +266,7 @@ const ResidentList = () => {
           </Form>
         </Modal.Body>
       </Modal>
+      <Footer/>
     </>
   );
 };

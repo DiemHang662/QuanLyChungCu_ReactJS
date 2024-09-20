@@ -1,0 +1,59 @@
+.table-container2 {
+    width: 100%;
+  }
+
+.title-result{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+  }
+  
+  .table-container2 table {
+    width: 95%;
+    border-collapse: collapse;
+    margin: 10px 30px; 
+  }
+  
+  .table-container2 th,
+  .table-container2 td {
+    border: 1px solid #dee2e6; 
+    padding: 12px; 
+    text-align: center;
+  }
+  
+  .table-container2 th {
+    background-color: #f8f9fa; 
+  }
+  
+  .table-container2 tbody tr:hover {
+    background-color: gainsboro; 
+  }
+  
+  .table-container2 tbody tr {
+    transition: background-color 0.3s; 
+  }
+  
+  .table-container2 td:last-child {
+    text-align: center;
+  }
+
+  .choose {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 250px;
+    width: 60%;
+  }
+  
+  .choose select {
+    flex: 1;
+    margin-right: 10px;
+
+  }
+  
+  .addSurvey {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  

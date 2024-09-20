@@ -11,9 +11,9 @@
   padding: 20px;
 }
 
-.chart{
+.chart {
   height: 690px;
-  margin-top: 20px; 
+  margin-top: 20px;
 }
 
 .title-bctk {
@@ -21,12 +21,12 @@
 }
 
 input {
-  width: 20%; 
+  width: 20%;
   margin-left: 10px;
 }
 
 button {
-  margin-left: 20px;
+  margin: 10px 20px;
 }
 
 .chart-data-summary {
@@ -43,7 +43,8 @@ button {
   border-collapse: collapse;
 }
 
-.chart-data-summary th, .chart-data-summary td {
+.chart-data-summary th,
+.chart-data-summary td {
   padding: 8px;
   border: 1px solid #ddd;
   text-align: center;
@@ -54,5 +55,16 @@ button {
 }
 
 .chart-data-summary tr:hover {
-  background-color:rgb(228, 227, 227);
+  background-color: rgb(228, 227, 227);
+}
+
+.input-list {
+  width: 100%;
+  padding: 7px;
+  border-radius: 10px;
+}
+
+.input-list:focus {
+  border: 1px solid dodgerblue;
+  box-shadow: 0px 3px 5px rgba(57, 162, 237, 0.945);
 }

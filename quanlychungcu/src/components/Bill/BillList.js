@@ -216,20 +216,21 @@ const BillList = () => {
               />
             </Form.Group>
             <Form.Group controlId="resident">
-              <Form.Label>Cư dân</Form.Label>
-              <Form.Select
-                value={editBill?.resident || ''}
-                onChange={(e) => setEditBill({ ...editBill, resident: e.target.value })}
-                required
-              >
-                <option value="">Chọn cư dân</option>
-                {residents.map((resident) => (
-                  <option key={resident.id} value={resident.id}>
-                    {resident.first_name} {resident.last_name}
-                  </option>
-                ))}
-              </Form.Select>
-            </Form.Group>
+    <Form.Label>Cư dân</Form.Label>
+    <Form.Select
+        value={editBill?.resident || ''}
+        onChange={(e) => setEditBill({ ...editBill, resident: e.target.value })}
+        required
+    >
+        <option value="">Chọn cư dân</option>
+        {residents.map((resident) => (
+            <option key={resident.id} value={resident.id}>
+                {resident.first_name} {resident.last_name} - {resident.id}
+            </option>
+        ))}
+    </Form.Select>
+</Form.Group>
+
 
             <Modal.Footer>
               <Button variant="secondary" onClick={() => setShowEditModal(false)}>

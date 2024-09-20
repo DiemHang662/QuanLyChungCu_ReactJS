@@ -1,26 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 import { authApi, endpoints } from '../../configs/API';
 import CustomNavbar from '../../components/Navbar/Navbar';
+import { Button, Alert } from 'react-bootstrap';
 import Footer from '../../components/Footer/Footer';
-import { Alert } from 'react-bootstrap';
 import './StatisticsChart.css';
 
 Chart.register(...registerables);
 
 const StatisticsChart = () => {
   const [chartData, setChartData] = useState(null);
-  const [surveyId, setSurveyId] = useState('');
+  const [surveys, setSurveys] = useState([]); // Initialize as an empty array
+  const [selectedSurveyId, setSelectedSurveyId] = useState('');
   const [error, setError] = useState('');
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
   const [chartValues, setChartValues] = useState({});
 
+  useEffect(() => {
+    const fetchSurveys = async () => {
+      try {
+        const api = authApi();
+        const response = await api.get(endpoints.survey); // Ensure this endpoint returns an array
+        if (Array.isArray(response.data)) { // Check if response.data is an array
+          setSurveys(response.data);
+        } else {
+          throw new Error('Expected an array from surveys endpoint');
+        }
+      } catch (err) {
+        console.error('Error fetching surveys:', err);
+        setError('Failed to fetch surveys. Please try again later.');
+        setShowAlert(true);
+      }
+    };
+
+    fetchSurveys();
+  }, []);
+
   const fetchStatistics = async () => {
+    if (!selectedSurveyId) {
+      setError('Vui lòng chọn khảo sát.');
+      setShowAlert(true);
+      return;
+    }
+
     try {
       const api = authApi();
-      const response = await api.get(endpoints.statistics(surveyId));
+      const response = await api.get(endpoints.statistics(selectedSurveyId));
 
       console.log('API Response:', response.data);
 
@@ -38,7 +65,7 @@ const StatisticsChart = () => {
               backgroundColor: 'rgba(75, 192, 192, 0.2)',
               borderColor: 'rgba(75, 192, 192, 1)',
               borderWidth: 2,
-              fill: true, // Fill the area under the line
+              fill: true,
             },
           ],
         };
@@ -86,17 +113,22 @@ const StatisticsChart = () => {
               fetchStatistics();
             }}
           >
-            <label htmlFor="survey_id">Nhập mã khảo sát:</label>
-            <input
-              type="number"
+            <label htmlFor="survey_id">Chọn khảo sát:</label>
+            <select className="input-list"
               id="survey_id"
               name="survey_id"
-              value={surveyId}
-              onChange={(e) => setSurveyId(e.target.value)}
-              min="1"
+              value={selectedSurveyId}
+              onChange={(e) => setSelectedSurveyId(e.target.value)}
               required
-            />
-            <button type="submit">Xem</button>
+            >
+              <option value="" disabled>-- Chọn khảo sát --</option>
+              {surveys.map((survey) => (
+                <option key={survey.id} value={survey.id}>
+                  {survey.title}
+                </option>
+              ))}
+            </select>
+            <Button variant="primary" type="submit">Xem</Button>
           </form>
           {showAlert && (
             <Alert variant={error ? 'danger' : 'success'} style={{ width: '100%', margin: '25px 0' }}>
@@ -141,7 +173,6 @@ const StatisticsChart = () => {
                           const value = tooltipItem.raw || '';
                           let description = '';
 
-                          // Provide custom descriptions based on the label
                           switch (label) {
                             case 'Vệ sinh':
                               description = 'Mức độ sạch sẽ của các khu vực.';

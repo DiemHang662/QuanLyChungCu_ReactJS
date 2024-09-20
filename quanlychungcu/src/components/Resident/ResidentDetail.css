@@ -1,0 +1,69 @@
+/* ResidentDetail.css */
+.resident-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+  
+.resident-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 600px;
+}
+  
+.resident-header {
+    position: relative;
+}
+  
+.resident-avatar {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 3px solid #4caf50; /* Green border for verified user */
+}
+  
+.resident-name {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+  
+.resident-verify {
+    font-size: 16px;
+    color: #4caf50;
+}
+  
+/* New flex layout for resident details */
+.resident-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+  
+.resident-left,
+.resident-right {
+    flex: 1;
+    padding: 5px 20px;
+}
+  
+.resident-full-name, .resident-phone  {
+    font-size: 16px;
+    color: #555;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.resident-username,
+.resident-email{
+    font-size: 16px;
+    color: #555;
+    text-align: right;
+    margin-top: 15px;
+}

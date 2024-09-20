@@ -37,7 +37,7 @@
 
 .action-buttons {
   display: flex;
-  gap: 8px;
+  gap: 5px;
 }
 
 .resident-button-primary {

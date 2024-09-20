@@ -81,12 +81,12 @@ const Survey = () => {
                 <input
                   type="number"
                   id="cleanliness"
-                  placeholder="0 - 10"
+                  placeholder="1 - 100"
                   className="input"
                   value={cleanlinessRating}
                   onChange={(e) => setCleanlinessRating(e.target.value)}
-                  min="0"
-                  max="10"
+                  min="1"
+                  max="100"
                 />
               </div>
 
@@ -95,12 +95,12 @@ const Survey = () => {
                 <input
                   type="number"
                   id="facilities"
-                  placeholder="0 - 10"
+                  placeholder="1 - 100"
                   className="input"
                   value={facilitiesRating}
                   onChange={(e) => setFacilitiesRating(e.target.value)}
-                  min="0"
-                  max="10"
+                  min="1"
+                  max="100"
                 />
               </div>
 
@@ -109,12 +109,12 @@ const Survey = () => {
                 <input
                   type="number"
                   id="services"
-                  placeholder="0 - 10"
+                  placeholder="1 - 100"
                   className="input"
                   value={servicesRating}
                   onChange={(e) => setServicesRating(e.target.value)}
-                  min="0"
-                  max="10"
+                  min="1"
+                  max="100"
                 />
               </div>
 

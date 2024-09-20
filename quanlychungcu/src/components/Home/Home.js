@@ -104,11 +104,11 @@ const Home = () => {
         console.error('There was an error fetching the resident statistics!', error);
       }
     };
-  
+
     fetchResidentStats();
   }, []);
-  
-  
+
+
   // Chart data
   const chartData = {
     labels: ['Cư dân', 'Căn hộ', 'Hóa đơn', 'Khảo sát'],
@@ -184,60 +184,60 @@ const Home = () => {
   };
 
 
-// Dữ liệu biểu đồ cho thống kê cư dân
-const residentChartData = {
-  labels: ['Cư dân', 'Quản trị viên'],
-  datasets: [
-    {
-      label: 'Số lượng',
-      data: [residentStats.residents, residentStats.admins],
-      backgroundColor: ['rgba(255, 205, 86, 0.2)', 'rgba(153, 102, 255, 0.3)'],
-      borderColor: ['rgb(255, 205, 86)', 'rgb(153, 102, 255)'],
-      borderWidth: 1,
-    },
-  ],
-};
+  // Dữ liệu biểu đồ cho thống kê cư dân
+  const residentChartData = {
+    labels: ['Cư dân', 'Quản trị viên'],
+    datasets: [
+      {
+        label: 'Số lượng',
+        data: [residentStats.residents, residentStats.admins],
+        backgroundColor: ['rgba(255, 205, 86, 0.2)', 'rgba(153, 102, 255, 0.3)'],
+        borderColor: ['rgb(255, 205, 86)', 'rgb(153, 102, 255)'],
+        borderWidth: 1,
+      },
+    ],
+  };
 
-// Tùy chọn biểu đồ cho thống kê cư dân
-const residentChartOptions = {
-  responsive: true,
-  plugins: {
-    legend: {
-      display: false,
-    },
-    title: {
-      display: true,
-    },
-  },
-  scales: {
-    y: {
-      beginAtZero: true,
+  // Tùy chọn biểu đồ cho thống kê cư dân
+  const residentChartOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
       title: {
         display: true,
       },
     },
-  },
-};
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+        },
+      },
+    },
+  };
 
 
   return (
     <>
-    <div className="container-home">
-      <Carousel>
-        {images.map((image, index) => (
-          <Carousel.Item key={index}>
-            <img className="d-block img-carousel" src={image} alt={`slide-${index}`} />
-            <Carousel.Caption>{/* Optional content here */}</Carousel.Caption>
-          </Carousel.Item>
-        ))}
-      </Carousel>
+      <div className="container-home">
+        <Carousel>
+          {images.map((image, index) => (
+            <Carousel.Item key={index}>
+              <img className="d-block img-carousel" src={image} alt={`slide-${index}`} />
+              <Carousel.Caption>{/* Optional content here */}</Carousel.Caption>
+            </Carousel.Item>
+          ))}
+        </Carousel>
 
-      <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-      <h1 className="h1">TỔNG QUAN</h1>
+        <h1 className="h1">TỔNG QUAN</h1>
 
-      <Row className="card-container">
-      <Col md={3}>
+        <Row className="card-container">
+          <Col md={3}>
             <div className="info-box resident">
               <div className="info-header">
                 <div className="title-content">
@@ -246,14 +246,14 @@ const residentChartOptions = {
                 </div>
                 <GroupIcon className="icon-title" />
               </div>
-              <div className="more-info">
+              <div className="more-info" onClick={() => { navigate('/resident') }}>
                 Chi tiết <ArrowCircleRightIcon />
               </div>
             </div>
           </Col>
 
-        
-        <Col md={3}>
+
+          <Col md={3}>
             <div className="info-box flat">
               <div className="info-header">
                 <div className="title-content">
@@ -269,7 +269,7 @@ const residentChartOptions = {
           </Col>
 
           <Col md={3}>
-            <div className="info-box bill">
+            <div className="info-box bill" >
               <div className="info-header">
                 <div className="title-content">
                   <strong>{billCount}</strong>
@@ -277,7 +277,7 @@ const residentChartOptions = {
                 </div>
                 <ReceiptIcon className="icon-title" />
               </div>
-              <div className="more-info">
+              <div className="more-info" onClick={() => { navigate('/bill') }}>
                 Chi tiết <ArrowCircleRightIcon />
               </div>
             </div>
@@ -292,34 +292,34 @@ const residentChartOptions = {
                 </div>
                 <EditNoteIcon className="icon-title" />
               </div>
-              <div className="more-info">
+              <div className="more-info" onClick={() => { navigate('/surveyresult') }}>
                 Chi tiết <ArrowCircleRightIcon />
               </div>
             </div>
           </Col>
 
-      </Row>
+        </Row>
 
-      <div className="chart">
-        <Line data={chartData} options={chartOptions} />
-      </div>
+        <div className="chart">
+          <Line data={chartData} options={chartOptions} />
+        </div>
 
-      <Row className="bill-statistics">
-  <Col md={6}>
-    <div className="chartBill">
-      <h2>Thống kê hóa đơn</h2>
-      <Bar data={barChartData} options={barChartOptions} />
-    </div>
-  </Col>
-  <Col md={6}>
-    <div className="chartUser">
-      <h2>Thống kê số người dùng</h2>
-      <Bar data={residentChartData} options={residentChartOptions} />
-    </div>
-  </Col>
-</Row>
+        <Row className="bill-statistics">
+          <Col md={6}>
+            <div className="chartUser">
+              <h2>Thống kê số người dùng</h2>
+              <Bar data={residentChartData} options={residentChartOptions} />
+            </div>
+          </Col>
+          <Col md={6}>
+            <div className="chartBill">
+              <h2>Thống kê hóa đơn</h2>
+              <Bar data={barChartData} options={barChartOptions} />
+            </div>
+          </Col>
+        </Row>
 
-      <div>
+        <div>
           <h1 className="h1">GIỚI THIỆU</h1>
 
           <div className="intro">

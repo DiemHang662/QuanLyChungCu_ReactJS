@@ -3,7 +3,7 @@ import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from '
 import { Link } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
-import ReceiptIcon from '@mui/icons-material/Receipt';
+import SpeedIcon from '@mui/icons-material/Speed';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ChatIcon from '@mui/icons-material/Chat';
@@ -33,16 +33,20 @@ const NavbarComponent = ({ searchTerm, setSearchTerm }) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/"><HomeIcon /> Trang chủ</Nav.Link>
-            <Nav.Link as={Link} to="/bill"><ReceiptIcon /> Hóa đơn</Nav.Link>
+            {user && user.is_superuser && (
+                  <Nav.Link as={Link} to="/home"><SpeedIcon /> Tổng quan</Nav.Link>
+                )}
             <Nav.Link as={Link} to="/product"><ShoppingCartIcon /> Mua hàng</Nav.Link>
             <Nav.Link as={Link} to="/chat"><ChatIcon /> Trò chuyện</Nav.Link> 
             <NavDropdown title="Khác" id="basic-nav-dropdown" align="end">
               <NavDropdown.Item as={Link} to="/survey">Khảo sát</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/bill">Hóa đơn</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/payment">Thanh toán</NavDropdown.Item>
               {user && user.is_superuser && (
                 <>
                   <NavDropdown.Item as={Link} to="/register">Cấp tài khoản</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/resident">Cư dân</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/surveyresult">Theo dõi khảo sát</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/statistics">Thống kê báo cáo</NavDropdown.Item>
                 </>
               )}
