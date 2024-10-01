@@ -43,6 +43,12 @@ const Chat = () => {
         }
     };
 
+    const formatTimestamp = (timestamp) => {
+        const date = new Date(timestamp);
+        const options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+        return date.toLocaleDateString('vi-VN', options);
+    };
+
     if (!user) {
         return <div>Vui lòng đăng nhập để tham gia trò chuyện...</div>;
     }
@@ -60,6 +66,9 @@ const Chat = () => {
                             >
                                 <div>
                                     <strong>{message.user}:</strong> <span className="message-text">{message.text}</span>
+                                    <div className="message-time">
+                                        {formatTimestamp(message.createdAt.toDate())} {/* Assuming createdAt is a Firestore Timestamp */}
+                                    </div>
                                 </div>
                             </div>
                         ))}

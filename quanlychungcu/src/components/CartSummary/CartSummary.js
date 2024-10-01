@@ -34,23 +34,35 @@ const CartSummary = () => {
     };
 
     fetchCartItems();
-  }, [api, currentPage]);
+  }, []);
 
   const updateQuantity = async (productId, quantity) => {
     try {
+      // Post the updated quantity to the API
       const response = await api.post(endpoints.updateProductQuantity, {
         product_id: productId,
-        quantity
+        quantity,
       });
-      const cartProducts = response.data.cart_products || [];
-      const totalPrice = response.data.total_price || 0;
-      setCartItems(cartProducts);
-      setTotalPrice(totalPrice);
+      
+      // Manually update the quantity of the product in the state without refetching
+      setCartItems(prevCartItems => 
+        prevCartItems.map(item => 
+          item.product.id === productId ? { ...item, quantity } : item
+        )
+      );
+      
+      // Update the total price based on the new quantity
+      const updatedTotalPrice = cartItems.reduce(
+        (sum, item) => sum + item.product.price * (item.product.id === productId ? quantity : item.quantity),
+        0
+      );
+      setTotalPrice(updatedTotalPrice);
     } catch (error) {
       console.error('Error updating item quantity:', error.response?.data || error.message);
       alert('Lỗi khi cập nhật số lượng sản phẩm');
     }
   };
+  
 
   const deleteFromCart = async (cartProductId) => {
     try {

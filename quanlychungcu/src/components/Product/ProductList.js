@@ -40,7 +40,7 @@ const ProductList = () => {
 
     fetchProducts();
     fetchCartItemCount();
-  }, [api, currentPage]);
+  }, []);
 
   const addToCart = async (productId) => {
     try {
